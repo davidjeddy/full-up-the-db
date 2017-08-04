@@ -13,15 +13,3 @@ php /app/index.php &
 php /app/index.php &
 php /app/index.php &
 php /app/index.php &
-
-# 20
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &
-php /app/index.php &

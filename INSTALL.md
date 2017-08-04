@@ -11,5 +11,15 @@
 
 # Run
 
+Bash into the service
+
+    docker exec -it fillupthedb_php_1
+
+## Run the start command
+
     cd /{project root}
-    docker exec -it fillupthedb_php_1 /app/index.php
+    date && /app/run.sh
+
+## Stop the process
+
+    pkill php && date

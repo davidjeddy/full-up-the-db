@@ -33,6 +33,14 @@ Batch row count 9962400 / min
 
 2147483648 / 9962400 = 215.5 min / 60  = 3.592 hrs
 
+Batch row count 1000
+Start Fri Aug  4 21:38:55 UTC 2017
+Stop Fri Aug  4 21:39:56 UTC 2017
+Duration 1:01
+Batch row count 23451890
+
+2147483648 / 23451890 = 91.569 min / 60  = 1.526 hrs
+
 # 20 processes
 Batch row count 60
 Start Fri Aug  4 21:22:00 UTC 2017
