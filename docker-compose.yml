@@ -9,8 +9,6 @@ services:
       - "3306:3306"
 
   php:
-    command:
-      'docker-php-ext-install pdo && docker-php-ext-install pdo_mysql'
     environment:
       TERM: xterm
     image: php:latest

@@ -1,10 +1,15 @@
 # Install
 
-git clone
-docker-compose up --build
+    cd /{project root parent}
+    git clone *
 
-docker exec -it fillupthedb_php_1 bash
+# Setup
 
-install PDO: docker-php-ext-install pdo && docker-php-ext-install pdo_mysql
+    cd /{project root}
+    docker-compose up --build -d
+    docker exec -it fillupthedb_php_1 docker-php-ext-install pdo && docker-php-ext-install pdo_mysql
 
-execute /app/index.php
+# Run
+
+    cd /{project root}
+    docker exec -it fillupthedb_php_1 /app/index.php
