@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mariaDb:
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    image: mariadb:latest
+
+  php:
+    environment:
+      TERM: xterm
+    image: php:latest
+    links:
+      - mariaDb
+    tty: true
+    volumes:
+      - ~/.ssh:/root/.ssh
+      - ./:/app
+
