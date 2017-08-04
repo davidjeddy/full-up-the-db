@@ -3,9 +3,14 @@ services:
   mariaDb:
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database
     image: mariadb:latest
+    ports:
+      - "3306:3306"
 
   php:
+    command:
+      'docker-php-ext-install pdo && docker-php-ext-install pdo_mysql'
     environment:
       TERM: xterm
     image: php:latest
@@ -15,4 +20,3 @@ services:
     volumes:
       - ~/.ssh:/root/.ssh
       - ./:/app
-

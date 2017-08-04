@@ -2,26 +2,30 @@
 declare(strict_types = 1);
 ini_set('display_errors', '1');
 
-$pdo = connect();
+// vars
 $counter = 0;
 $max = 2147483648;
 
 // conn to DB
-
-// print start date time
-echo date() . "\n";
+$pdo = connect();
 
 // loop till max reached
 while ($counter < $max) {
 
+    // debug / dev stopper
     if ($counter > 10) { break; }
 
-    $data = $pdo->query("INSERT value= sex, name, car FROM users")->execute();;
+    try {
+        $statement = $pdo->prepare("INSERT INTO signed(value) VALUES(:value)");
+        $statement->execute(["value" => "a"]);
+    } catch (PDOException $e) {
+        throw new \Exception($e->getMessage());
+    }
 
     $counter++;
 }
-// print ending date time
-echo date() . "\n";
+
+echo 'Opps: Did not get a PDO exception.';
 
 // functions
 
@@ -30,8 +34,9 @@ echo date() . "\n";
  */
 function connect() : \pdo
 {
+    // obv. if this was a real app we would not store creds. here
     $host = 'fillupthedb_mariaDb_1';
-    $db   = 'test';
+    $db   = 'database';
     $user = 'root';
     $pass = 'password';
     $charset = 'utf8';
