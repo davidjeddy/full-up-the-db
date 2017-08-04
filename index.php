@@ -1,6 +1,7 @@
 <?php
 declare(strict_types = 1);
 ini_set('display_errors', '1');
+ini_set('max_execution_time', '300'); //300 seconds = 5 minutes
 
 // vars
 $counter = 0;
@@ -9,16 +10,16 @@ $max = 2147483648;
 // conn to DB
 $pdo = connect();
 
+$startTime = microtime(true);
 // loop till max reached
 while ($counter < $max) {
-
-    // debug / dev stopper
-    if ($counter > 10) { break; }
 
     try {
         $statement = $pdo->prepare("INSERT INTO signed(value) VALUES(:value)");
         $statement->execute(["value" => "a"]);
     } catch (PDOException $e) {
+        echo "Elapsed time is: ". (microtime(true) - $startTime) ." seconds.\n";
+
         throw new \Exception($e->getMessage());
     }
 
