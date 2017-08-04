@@ -5,6 +5,8 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: database
     image: mariadb:latest
+#    volumes:
+#      - ./my.cnf:/etc/mysql/my.cnf
     ports:
       - "3306:3306"
 

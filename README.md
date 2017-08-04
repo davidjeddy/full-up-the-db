@@ -1,8 +1,8 @@
 # Fill-up the DB
 
 Challenge: insert rows into a DB using PHP/PDO that would cause a signed int(11) overflow error in under 5 minutes of execution.
-Doing so with the minimal amount of tuning and changing from default install values of PHP and the DB. We're talking default
-from vendor install.
+Doing so with the minimal amount of tuning and changing from default install values of PHP and the DB.
+As stock as possible also.
 
 Signed int(11) = 2147483648
 
