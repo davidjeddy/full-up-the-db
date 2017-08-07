@@ -9,7 +9,7 @@ $data = createData();
 // loop till max reached
 while (0 < 1) {
     try {
-        $pdo->prepare("INSERT INTO signed(value) VALUES ('a'),('b'),('c'),('d'),('e')$data2")->execute();
+        $pdo->prepare("INSERT INTO signed(value) VALUES ('z')$data")->execute();
     } catch (PDOException $e) {
         throw new \Exception($e->getMessage());
     }
@@ -47,10 +47,10 @@ function connect() : \pdo
  */
 function createData() : string
 {
-    $data = ",('a'),('b'),('c'),('d'),('e')";
+    $data  = ",('a'),('b'),('c'),('d'),('e')";
     $data2 = '';
 
-    for ($i=0; $i < 10000000; $i++) {
+    for ($i=0; $i < 500000; $i++) {
         $data2 .= $data;
     }
 
