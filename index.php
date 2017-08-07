@@ -47,10 +47,10 @@ function connect() : \pdo
  */
 function createData() : string
 {
-    $data  = ",('a'),('b'),('c'),('d'),('e')";
+    $data  = ",('a')";
     $data2 = '';
 
-    for ($i=0; $i < 500000; $i++) {
+    for ($i=0; $i < 2500000; $i++) {
         $data2 .= $data;
     }
 
