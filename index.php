@@ -1,50 +1,21 @@
 <?php
 declare(strict_types = 1);
 ini_set('display_errors', '1');
-ini_set('max_execution_time', '60'); //60 seconds = 1 minutes
-
-// vars
-$counter = 0;
-$max = 2147483648;
 
 // conn to DB
 $pdo = connect();
-
-// truncate table
-$pdo->prepare("TRUNCATE signed;")->execute();
-
-$data = ",('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')
-,('a'),('b'),('c'),('d'),('e')";
-
-# 10 * X =
-for ($i=0; $i < 10; $i++) {
-    $data .= $data;
-}
+$data = createData();
 
 // loop till max reached
-while ($counter < $max) {
+while (0 < 1) {
     try {
-        $pdo->prepare("INSERT INTO signed(value) VALUES ('a'),('b'),('c'),('d'),('e')$data")->execute();
+        $pdo->prepare("INSERT INTO signed(value) VALUES ('a'),('b'),('c'),('d'),('e')$data2")->execute();
     } catch (PDOException $e) {
         throw new \Exception($e->getMessage());
     }
-
-    if ($counter >= $max) {
-        exit(0);
-    }
-
-    $counter++;
 }
 
-echo 'Opps: Did not get a PDO exception.';
+echo 'Oops: Did not get a PDO exception.';
 
 // functions
 
@@ -69,4 +40,19 @@ function connect() : \pdo
     $pdo = new PDO($dsn, $user, $pass, $opt);
 
     return $pdo;
+}
+
+/**
+ * @return string
+ */
+function createData() : string
+{
+    $data = ",('a'),('b'),('c'),('d'),('e')";
+    $data2 = '';
+
+    for ($i=0; $i < 10000000; $i++) {
+        $data2 .= $data;
+    }
+
+    return $data2;
 }
