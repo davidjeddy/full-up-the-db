@@ -7,19 +7,20 @@
 
     cd /{project root}
     docker-compose up --build -d
-    docker exec -it fillupthedb_php_1 docker-php-ext-install pdo && docker-php-ext-install pdo_mysql
+    docker exec -it fillupthedb_php_1 docker-php-ext-install pdo
+    docker exec -it fillupthedb_php_1 docker-php-ext-install pdo_mysql
 
-    Use your RDBMS of course to run the database.sql SQL script to create the DB schema and tables
+    Run database.sql SQL script to create the DB schema and tables
 
 # Run
 
 Bash into the service
 
-    docker exec -it fillupthedb_php_1
+    docker exec -it fillupthedb_php_1 bash
 
 ## Run the start command
 
-    cd /{project root}
+    cd /app
     date && /app/run.sh
 
 ## Stop the process
