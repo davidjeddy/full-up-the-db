@@ -1,0 +1,22 @@
+version: '2'
+services:
+  mariaDb:
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database
+    image: mariadb:latest
+#    volumes:
+#      - ./my.cnf:/etc/mysql/my.cnf
+    ports:
+      - "3306:3306"
+
+  php:
+    environment:
+      TERM: xterm
+    image: php:latest
+    links:
+      - mariaDb
+    tty: true
+    volumes:
+      - ~/.ssh:/root/.ssh
+      - ./:/app
